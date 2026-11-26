@@ -1,5 +1,5 @@
 {
-  "_napomena": "Cene iz Dušankinog cenovnika (foto 26.11.2026). Stavke sa proveriti=true treba potvrditi.",
+  "_napomena": "Cene iz Dušankinog cenovnika (foto 26.11.2026). Stavke sa proveriti=true treba potvrditi. Vrste ukusa (vrste) i opisi su PRIMER, Dušanka treba da potvrdi i doda kratak opis (opis) za svaku tortu.",
   "grupe": [
     {
       "id": "torte",
@@ -23,14 +23,22 @@
       "naziv": "Voćna južno voće",
       "jedinica": "kg",
       "cena": 1450,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "vocne"
+      ],
+      "opis": ""
     },
     {
       "id": "vocna-sezonsko-voce",
       "naziv": "Voćna sezonsko voće",
       "jedinica": "kg",
       "cena": 1800,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "vocne"
+      ],
+      "opis": ""
     },
     {
       "id": "vocni-sladoled",
@@ -38,182 +46,300 @@
       "jedinica": "kg",
       "cena": 1600,
       "grupa": "torte",
-      "proveriti": true
+      "proveriti": true,
+      "vrste": [
+        "vocne",
+        "sladoled"
+      ],
+      "opis": ""
     },
     {
       "id": "bela-milka",
       "naziv": "Bela Milka",
       "jedinica": "kg",
       "cena": 1350,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "reforma",
       "naziv": "Reforma",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "gabon",
       "naziv": "Gabon",
       "jedinica": "kg",
       "cena": 1500,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne"
+      ],
+      "opis": ""
     },
     {
       "id": "grcka",
       "naziv": "Grčka",
       "jedinica": "kg",
       "cena": 1650,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "patrijarsija",
       "naziv": "Patrijaršija",
       "jedinica": "kg",
       "cena": 1650,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "orasaste",
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "kinder-bueno",
       "naziv": "Kinder Bueno",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "divlja-ruza",
       "naziv": "Divlja ruža",
       "jedinica": "kg",
       "cena": 1800,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "vocne",
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "zlatna-lesnik",
       "naziv": "Zlatna lešnik",
       "jedinica": "kg",
       "cena": 2300,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "najlepse-zelje",
       "naziv": "Najlepše želje",
       "jedinica": "kg",
       "cena": 1800,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "baron",
       "naziv": "Baron",
       "jedinica": "kg",
       "cena": 1680,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "bajadera",
       "naziv": "Bajadera",
       "jedinica": "kg",
       "cena": 1950,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "moskva",
       "naziv": "Moskva",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "vocne",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "beze",
       "naziv": "Beze",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste",
+        "orasaste"
+      ],
+      "opis": ""
     },
     {
       "id": "svarcvald",
       "naziv": "Švarcvald",
       "jedinica": "kg",
       "cena": 1500,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne",
+        "vocne"
+      ],
+      "opis": ""
     },
     {
       "id": "super-top",
       "naziv": "Super-top",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "dobos",
       "naziv": "Doboš",
       "jedinica": "kg",
       "cena": 1450,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne"
+      ],
+      "opis": ""
     },
     {
       "id": "bambino-coko-moko",
       "naziv": "Bambino / Čoko-moko",
       "jedinica": "kg",
       "cena": 1600,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne"
+      ],
+      "opis": ""
     },
     {
       "id": "pahuljica",
       "naziv": "Pahuljica",
       "jedinica": "kg",
       "cena": 1650,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "cizkejk",
       "naziv": "Čizkejk",
       "jedinica": "kg",
       "cena": 1800,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste",
+        "vocne"
+      ],
+      "opis": ""
     },
     {
       "id": "menaz",
       "naziv": "Menaz",
       "jedinica": "kg",
       "cena": 1600,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "sladoled",
       "naziv": "Sladoled",
       "jedinica": "kg",
       "cena": 1400,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "sladoled"
+      ],
+      "opis": ""
     },
     {
       "id": "spanski-vetar",
       "naziv": "Španski vetar",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste",
+        "cokoladne"
+      ],
+      "opis": ""
     },
     {
       "id": "zakova",
       "naziv": "Žakova",
       "jedinica": "kg",
       "cena": 1600,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "zarbo",
       "naziv": "Žarbo",
       "jedinica": "kg",
       "cena": 1650,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "orasaste",
+        "kremaste"
+      ],
+      "opis": ""
     },
     {
       "id": "cokolina",
       "naziv": "Čokolina",
       "jedinica": "kg",
       "cena": 1700,
-      "grupa": "torte"
+      "grupa": "torte",
+      "vrste": [
+        "cokoladne"
+      ],
+      "opis": ""
     },
     {
       "id": "princes-krofne",
@@ -355,6 +481,28 @@
       "jedinica": "kg",
       "cena": 1800,
       "grupa": "sitni"
+    }
+  ],
+  "vrste": [
+    {
+      "id": "cokoladne",
+      "naziv": "Čokoladne"
+    },
+    {
+      "id": "orasaste",
+      "naziv": "Lešnik i orah"
+    },
+    {
+      "id": "vocne",
+      "naziv": "Voćne"
+    },
+    {
+      "id": "kremaste",
+      "naziv": "Kremaste"
+    },
+    {
+      "id": "sladoled",
+      "naziv": "Sladoled"
     }
   ]
 }

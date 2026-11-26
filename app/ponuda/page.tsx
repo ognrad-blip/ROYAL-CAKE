@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ponuda from "@/content/ponuda.json";
 import { din } from "@/lib/format";
+import { UkusiTorti } from "@/components/UkusiTorti";
 
 export const metadata = { title: "Ponuda i cene", description: "Torte po kilogramu, kolači i poslastice Royal Cake Čačak." };
 
@@ -18,7 +19,7 @@ export default function Ponuda() {
             <h2 className="font-serif text-3xl">{g.naslov}</h2>
             <span className="text-xs uppercase tracking-widest text-cocoa-soft">{g.opis}</span>
           </div>
-          <ul className="grid gap-x-10 md:grid-cols-2">
+          {g.id === "torte" ? <UkusiTorti /> : <ul className="grid gap-x-10 md:grid-cols-2">
             {ponuda.stavke.filter((s) => s.grupa === g.id).map((s) => (
               <li key={s.id} className="flex items-baseline gap-2 py-2.5">
                 <span className="text-[15px]">{s.naziv}</span>
@@ -28,7 +29,7 @@ export default function Ponuda() {
                 </span>
               </li>
             ))}
-          </ul>
+          </ul>}
         </section>
       ))}
       <div className="mt-14 rounded-2xl bg-cocoa p-8 text-center text-cream">

@@ -4,6 +4,7 @@ import sajt from "@/content/sajt.json";
 import ponuda from "@/content/ponuda.json";
 import { Crown } from "@/components/Crown";
 import { din } from "@/lib/format";
+import pitanja from "@/content/pitanja.json";
 
 const prilike = [
   { naslov: "Rođendani", slika: "/galerija/0347.webp", href: "/galerija?k=rodjendan" },
@@ -110,6 +111,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Kako poručujem */}
+      <section id="kako-porucujem" className="py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <SectionTitle nad="Jednostavno" naslov="Kako poručujem?" />
+          <ol className="mt-10 grid gap-4 md:grid-cols-4">
+            {pitanja.kakoPorucujem.map((k, i) => (
+              <li key={k.naslov} className="relative rounded-2xl border border-line bg-ivory p-5">
+                <span className="btn-gold flex h-9 w-9 items-center justify-center rounded-full font-serif text-lg">{i + 1}</span>
+                <p className="mt-3 font-serif text-2xl">{k.naslov}</p>
+                <p className="mt-1 text-sm leading-relaxed text-cocoa-soft">{k.tekst}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8 text-center">
+            <Link href="/napravi-tortu" className="btn-gold inline-block rounded-full px-8 py-3 font-medium">Napravi svoju tortu</Link>
+          </div>
+        </div>
+      </section>
+
       {/* O nama */}
       <section className="py-16">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 md:grid-cols-2">
@@ -119,6 +139,24 @@ export default function Home() {
           <div>
             <SectionTitle nad="O nama" naslov="Pravljeno s ljubavlju" left />
             <p className="mt-5 leading-relaxed text-cocoa-soft">{sajt.oNama}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Česta pitanja */}
+      <section id="pitanja" className="bg-ivory py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <SectionTitle nad="Imate pitanje?" naslov="Česta pitanja" />
+          <div className="mt-8 divide-y divide-line rounded-2xl border border-line bg-cream">
+            {pitanja.pitanja.map((q) => (
+              <details key={q.p} className="group px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium">
+                  {q.p}
+                  <span className="text-xl text-gold transition group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-2 text-sm leading-relaxed text-cocoa-soft">{q.o}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

@@ -1,43 +1,166 @@
 {
   "_napomena": "Pravila konfiguratora. Vrednosti sa 'primer: true' su PRIMER za prototip i moraju se potvrditi sa Dušankom pre objave.",
   "prilike": [
-    { "id": "rodjendan", "naziv": "Rođendan", "ikona": "🎂" },
-    { "id": "punoletstvo", "naziv": "18. rođendan", "ikona": "✨" },
-    { "id": "decije", "naziv": "Dečiji rođendan", "ikona": "🧸" },
-    { "id": "vencanje", "naziv": "Venčanje", "ikona": "💍" },
-    { "id": "krstenje", "naziv": "Krštenje", "ikona": "🕊️" },
-    { "id": "ostalo", "naziv": "Nešto drugo", "ikona": "🎉" }
+    {
+      "id": "rodjendan",
+      "naziv": "Rođendan",
+      "ikona": "🎂"
+    },
+    {
+      "id": "punoletstvo",
+      "naziv": "18. rođendan",
+      "ikona": "✨"
+    },
+    {
+      "id": "decije",
+      "naziv": "Dečiji rođendan",
+      "ikona": "🧸"
+    },
+    {
+      "id": "vencanje",
+      "naziv": "Venčanje",
+      "ikona": "💍"
+    },
+    {
+      "id": "krstenje",
+      "naziv": "Krštenje",
+      "ikona": "🕊️"
+    },
+    {
+      "id": "ostalo",
+      "naziv": "Nešto drugo",
+      "ikona": "🎉"
+    }
   ],
-  "osobe": { "min": 8, "max": 200, "korak": 2, "podrazumevano": 20 },
-  "kgPoOsobi": { "vrednost": 0.15, "primer": true },
-  "minKg": { "vrednost": 1.5, "primer": true },
+  "osobe": {
+    "min": 8,
+    "max": 200,
+    "korak": 2,
+    "podrazumevano": 20
+  },
+  "kgPoOsobi": {
+    "vrednost": 0.15,
+    "primer": true
+  },
+  "minKg": {
+    "vrednost": 1.5,
+    "primer": true
+  },
   "spratovi": [
-    { "id": "1", "naziv": "Jedan sprat", "maxOsoba": 40, "doplata": 0 },
-    { "id": "2", "naziv": "Dva sprata", "minOsoba": 25, "doplata": 0, "primer": true },
-    { "id": "3", "naziv": "Tri sprata", "minOsoba": 60, "doplata": 0, "primer": true }
+    {
+      "id": "1",
+      "naziv": "Jedan sprat",
+      "maxOsoba": 40,
+      "doplata": 0
+    },
+    {
+      "id": "2",
+      "naziv": "Dva sprata",
+      "minOsoba": 25,
+      "doplata": 0,
+      "primer": true
+    },
+    {
+      "id": "3",
+      "naziv": "Tri sprata",
+      "minOsoba": 60,
+      "doplata": 0,
+      "primer": true
+    }
   ],
   "ukusiIzPonude": "torte",
-  "stilovi": ["0347", "0344", "0349", "0359", "0358", "0346", "0350", "0365"],
-  "detalji": [
-    { "id": "natpis", "naziv": "Natpis na torti", "cena": null, "unos": true },
-    { "id": "topper", "naziv": "Topper (broj, ime, Happy Birthday)", "cena": null },
-    { "id": "figurice", "naziv": "Figurice", "cena": null },
-    { "id": "cvece", "naziv": "Cveće", "cena": null },
-    { "id": "jestiva-slika", "naziv": "Jestiva slika", "cena": null },
-    { "id": "zlatni-detalji", "naziv": "Zlatni detalji i perle", "cena": null }
+  "stilovi": [
+    "0347",
+    "0344",
+    "0349",
+    "0359",
+    "0358",
+    "0346",
+    "0350",
+    "0365"
   ],
-  "boje": ["Bela", "Krem", "Roze", "Lila", "Plava", "Crna i zlatna", "Crvena", "Pastelna duga"],
+  "detalji": [
+    {
+      "id": "natpis",
+      "naziv": "Natpis na torti",
+      "cena": null,
+      "unos": true
+    },
+    {
+      "id": "topper",
+      "naziv": "Topper (broj, ime, Happy Birthday)",
+      "cena": null
+    },
+    {
+      "id": "figurice",
+      "naziv": "Figurice",
+      "cena": null
+    },
+    {
+      "id": "cvece",
+      "naziv": "Cveće",
+      "cena": null
+    },
+    {
+      "id": "jestiva-slika",
+      "naziv": "Jestiva slika",
+      "cena": null
+    },
+    {
+      "id": "zlatni-detalji",
+      "naziv": "Zlatni detalji i perle",
+      "cena": null
+    }
+  ],
+  "boje": [
+    "Bela",
+    "Krem",
+    "Roze",
+    "Lila",
+    "Plava",
+    "Crna i zlatna",
+    "Crvena",
+    "Pastelna duga"
+  ],
   "preuzimanje": [
-    { "id": "radnja", "naziv": "Preuzimanje u radnji" },
-    { "id": "dostava", "naziv": "Dostava [POPUNITI: da li postoji i cena]" }
+    {
+      "id": "radnja",
+      "naziv": "Preuzimanje u radnji"
+    },
+    {
+      "id": "dostava",
+      "naziv": "Dostava [POPUNITI: da li postoji i cena]"
+    }
   ],
   "rokovi": {
-    "standardDana": { "vrednost": 3, "primer": true },
-    "vencanjeDana": { "vrednost": 21, "primer": true }
+    "standardDana": {
+      "vrednost": 3,
+      "primer": true
+    },
+    "vencanjeDana": {
+      "vrednost": 21,
+      "primer": true
+    }
   },
   "kontakt": {
     "telefon": "[POPUNITI]",
     "viber": "",
     "whatsapp": ""
+  },
+  "udeoPoSpratu": {
+    "primer": true,
+    "_opis": "Koliki deo ukupne težine ide na svaki sprat, od donjeg ka gornjem.",
+    "1": [
+      1
+    ],
+    "2": [
+      0.6,
+      0.4
+    ],
+    "3": [
+      0.5,
+      0.3,
+      0.2
+    ]
   }
 }

@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { VrstaFilter, filtriraj } from "@/components/UkusiTorti";
 import cfg from "@/config/torte.json";
 import ponuda from "@/content/ponuda.json";
 import galerija from "@/content/galerija.json";
@@ -11,7 +13,7 @@ type Izbor = {
   prilika?: string;
   osobe: number;
   spratovi?: string;
-  ukus?: string;
+  ukusi: (string | undefined)[];
   stil?: string;
   boje: string[];
   detalji: string[];
@@ -26,6 +28,8 @@ type Izbor = {
 
 const KORACI = ["Prilika", "Veličina", "Ukus", "Stil", "Detalji", "Datum", "Upit"];
 const ukusi = ponuda.stavke.filter((s) => s.grupa === cfg.ukusiIzPonude);
+const udeo = cfg.udeoPoSpratu as unknown as Record<string, number[]>;
+const NAZIV_SPRATA = ["Donji sprat", "Srednji sprat", "Gornji sprat"];
 
 function danaDo(datum: string) {
   if (!datum) return Infinity;
@@ -36,8 +40,13 @@ function danaDo(datum: string) {
 export function Konfigurator() {
   const [korak, setKorak] = useState(0);
   const [poslato, setPoslato] = useState(false);
+  const params = useSearchParams();
+  const izLinka = ukusi.find((u) => u.id === params.get("ukus"))?.id;
+  const [vrsta, setVrsta] = useState("sve");
+  const [aktivniSprat, setAktivniSprat] = useState(0);
   const [z, setZ] = useState<Izbor>({
     osobe: cfg.osobe.podrazumevano,
+    ukusi: izLinka ? [izLinka] : [],
     boje: [],
     detalji: [],
     natpis: "",
@@ -48,9 +57,16 @@ export function Konfigurator() {
   });
   const set = (p: Partial<Izbor>) => setZ((s) => ({ ...s, ...p }));
 
-  const ukus = ukusi.find((u) => u.id === z.ukus);
   const kg = Math.max(cfg.minKg.vrednost, Math.round(z.osobe * cfg.kgPoOsobi.vrednost * 2) / 2);
-  const cena = ukus ? kg * ukus.cena : null;
+  const brojSpratova = Number(z.spratovi ?? 1);
+  const udeli = udeo[String(brojSpratova)] ?? [1];
+  const ukusSprata = (i: number) => ukusi.find((u) => u.id === (z.ukusi[i] ?? z.ukusi[0]));
+  const sviIzabrani = udeli.every((_, i) => !!ukusSprata(i));
+  const cena = sviIzabrani ? udeli.reduce((sum, d, i) => sum + kg * d * ukusSprata(i)!.cena, 0) : null;
+  const opisUkusa = udeli
+    .map((_, i) => ukusSprata(i)?.naziv)
+    .map((n, i) => (brojSpratova > 1 ? `${NAZIV_SPRATA[brojSpratova === 2 && i === 1 ? 2 : i]}: ${n ?? "-"}` : n ?? "-"))
+    .join(", ");
   const prilika = cfg.prilike.find((p) => p.id === z.prilika);
   const vencanje = z.prilika === "vencanje";
   const minDana = vencanje ? cfg.rokovi.vencanjeDana.vrednost : cfg.rokovi.standardDana.vrednost;
@@ -62,7 +78,7 @@ export function Konfigurator() {
   const moze = [
     !!z.prilika,
     !!z.spratovi,
-    !!z.ukus,
+    sviIzabrani,
     true,
     true,
     !!z.datum && !!z.preuzimanje,
@@ -77,7 +93,7 @@ export function Konfigurator() {
       `Prilika: ${prilika?.naziv ?? "-"}`,
       `Broj osoba: ${z.osobe} (oko ${kg} kg)`,
       `Spratovi: ${cfg.spratovi.find((s) => s.id === z.spratovi)?.naziv ?? "-"}`,
-      `Ukus: ${ukus?.naziv ?? "-"}`,
+      `Ukus: ${opisUkusa}`,
       `Stil: ${stil ? stil.naslov : "po dogovoru"}`,
       `Boje: ${z.boje.join(", ") || "-"}`,
       `Detalji: ${det.join(", ") || "-"}`,
@@ -92,7 +108,7 @@ export function Konfigurator() {
     ]
       .filter(Boolean)
       .join("\n");
-  }, [z, kg, cena, prilika, ukus]);
+  }, [z, kg, cena, prilika, opisUkusa]);
 
   if (poslato) {
     return (
@@ -166,14 +182,50 @@ export function Konfigurator() {
       )}
 
       {korak === 2 && (
-        <Step naslov="Ukus i fil">
-          <div className="grid grid-cols-2 gap-2">
-            {ukusi.map((u) => (
-              <Choice key={u.id} active={z.ukus === u.id} onClick={() => set({ ukus: u.id })} compact>
-                <span className="block font-medium">{u.naziv}</span>
-                <span className="text-xs text-gold-dark">{din(u.cena)}/kg</span>
-              </Choice>
-            ))}
+        <Step
+          naslov="Ukus i fil"
+          podnaslov={brojSpratova > 1 ? "Svaki sprat može biti drugog ukusa. Izaberite sprat, pa ukus." : undefined}
+        >
+          {brojSpratova > 1 && (
+            <div className="mb-4 grid gap-2" style={{ gridTemplateColumns: `repeat(${brojSpratova}, 1fr)` }}>
+              {udeli.map((_, i) => {
+                const naziv = NAZIV_SPRATA[brojSpratova === 2 && i === 1 ? 2 : i];
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setAktivniSprat(i)}
+                    className={`rounded-xl border px-2 py-2 text-left text-xs ${Math.min(aktivniSprat, brojSpratova - 1) === i ? "border-gold bg-blush ring-1 ring-gold" : "border-line bg-ivory"}`}
+                  >
+                    <span className="block font-medium">{naziv}</span>
+                    <span className="block truncate text-gold-dark">{ukusSprata(i)?.naziv ?? "Izaberite"}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          <VrstaFilter value={vrsta} onChange={setVrsta} />
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {filtriraj(vrsta).map((u) => {
+              const i = Math.min(aktivniSprat, brojSpratova - 1);
+              const active = (z.ukusi[i] ?? (i > 0 ? undefined : z.ukusi[0])) === u.id;
+              return (
+                <Choice
+                  key={u.id}
+                  active={active}
+                  compact
+                  onClick={() => {
+                    const n = [...z.ukusi];
+                    n[i] = u.id;
+                    if (i === 0) for (let j = 1; j < brojSpratova; j++) if (!n[j]) n[j] = u.id;
+                    set({ ukusi: n });
+                    if (brojSpratova > 1 && i < brojSpratova - 1) setAktivniSprat(i + 1);
+                  }}
+                >
+                  <span className="block font-medium">{u.naziv}</span>
+                  <span className="text-xs text-gold-dark">{din(u.cena)}/kg</span>
+                </Choice>
+              );
+            })}
           </div>
         </Step>
       )}

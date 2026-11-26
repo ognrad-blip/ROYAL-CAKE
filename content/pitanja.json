@@ -1,0 +1,18 @@
+{
+  "_napomena": "ŠABLON. Odgovore treba proveriti i popuniti sa Dušankom.",
+  "kakoPorucujem": [
+    { "naslov": "Sklopite tortu", "tekst": "U konfiguratoru izaberite priliku, veličinu, ukus i stil. Odmah vidite okvirnu cenu." },
+    { "naslov": "Pošaljite upit", "tekst": "Upit stiže Dušanki na Viber ili WhatsApp, sa svim vašim izborima." },
+    { "naslov": "Potvrđujemo detalje", "tekst": "Javljamo vam se [POPUNITI: npr. istog dana] da dogovorimo izgled i konačnu cenu." },
+    { "naslov": "Preuzimanje", "tekst": "Uz kaparu potvrđujete termin, a tortu preuzimate u radnji ili je dostavljamo." }
+  ],
+  "pitanja": [
+    { "p": "Koliko unapred treba da naručim tortu?", "o": "Za rođendanske torte bar [POPUNITI] dana, a za svadbene bar [POPUNITI] nedelje unapred." },
+    { "p": "Da li je potrebna kapara?", "o": "[POPUNITI: iznos ili procenat kapare i način uplate]." },
+    { "p": "Da li radite dostavu?", "o": "[POPUNITI: da li postoji dostava, za koje delove grada i po kojoj ceni]." },
+    { "p": "Koliko torte je potrebno po osobi?", "o": "Računamo oko [POPUNITI] grama po osobi. Konfigurator to sam izračuna." },
+    { "p": "Mogu li da kombinujem ukuse?", "o": "Da, kod torti na više spratova svaki sprat može biti drugog ukusa." },
+    { "p": "Kako se čuva torta?", "o": "[POPUNITI: u frižideru, koliko dugo, koliko pre služenja izvaditi]." },
+    { "p": "Da li pravite torte bez glutena, šećera ili posne torte?", "o": "[POPUNITI]." }
+  ]
+}
