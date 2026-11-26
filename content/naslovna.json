@@ -1,0 +1,51 @@
+{
+  "_napomena": "Slike za naslovnu dao Oggy 26.11.2026 kao inspiraciju. Nisu Dušankini radovi; zameniti njenim fotografijama.",
+  "oznaka": "Inspiracija",
+  "slike": [
+    {
+      "src": "/naslovna/1.webp",
+      "w": 505,
+      "h": 606
+    },
+    {
+      "src": "/naslovna/2.webp",
+      "w": 425,
+      "h": 720
+    },
+    {
+      "src": "/naslovna/3.webp",
+      "w": 401,
+      "h": 765
+    },
+    {
+      "src": "/naslovna/4.webp",
+      "w": 414,
+      "h": 740
+    },
+    {
+      "src": "/naslovna/5.webp",
+      "w": 401,
+      "h": 764
+    },
+    {
+      "src": "/naslovna/6.webp",
+      "w": 452,
+      "h": 678
+    },
+    {
+      "src": "/naslovna/7.webp",
+      "w": 452,
+      "h": 678
+    },
+    {
+      "src": "/naslovna/8.webp",
+      "w": 547,
+      "h": 365
+    },
+    {
+      "src": "/naslovna/9.webp",
+      "w": 700,
+      "h": 700
+    }
+  ]
+}

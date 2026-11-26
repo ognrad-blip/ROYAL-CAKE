@@ -3,6 +3,7 @@ import Link from "next/link";
 import sajt from "@/content/sajt.json";
 import ponuda from "@/content/ponuda.json";
 import { Crown } from "@/components/Crown";
+import { Hero } from "@/components/Hero";
 import { din } from "@/lib/format";
 import pitanja from "@/content/pitanja.json";
 
@@ -19,37 +20,7 @@ export default function Home() {
   const torte = ponuda.stavke.filter((s) => izdvojeno.includes(s.id));
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-14 pt-8 md:grid-cols-2 md:py-20">
-          <div className="order-2 text-center md:order-1 md:text-left">
-            <p className="ornament mb-4 text-xs uppercase tracking-[0.35em] text-gold-dark">Poslastičarnica · {sajt.grad}</p>
-            <h1 className="font-serif text-5xl font-medium leading-[1.05] md:text-7xl">
-              Torte koje se <em className="gold-text not-italic font-semibold">pamte</em>
-            </h1>
-            <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-cocoa-soft md:mx-0 md:text-lg">{sajt.uvod}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-              <Link href="/napravi-tortu" className="btn-gold rounded-full px-8 py-4 text-center font-medium shadow-md shadow-gold/20">
-                Napravi svoju tortu
-              </Link>
-              <Link href="/ponuda" className="rounded-full border border-gold/50 px-8 py-4 text-center font-medium text-gold-dark hover:bg-ivory">
-                Pogledaj ponudu
-              </Link>
-            </div>
-          </div>
-          <div className="relative order-1 mx-auto w-full max-w-sm md:order-2 md:max-w-none">
-            <div className="absolute -inset-3 rounded-[2.5rem] border border-gold/30" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-xl shadow-cocoa/10">
-              <Image src="/galerija/0359.webp" alt="Torta sa ružama, Royal Cake" fill priority sizes="(max-width:768px) 90vw, 45vw" className="object-cover" />
-            </div>
-            <div className="absolute -bottom-5 -left-3 hidden w-36 overflow-hidden rounded-2xl border-4 border-cream shadow-lg sm:block">
-              <div className="relative aspect-square">
-                <Image src="/galerija/0344.webp" alt="Torta za 18. rođendan" fill sizes="150px" className="object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Prilike */}
       <section className="bg-ivory py-16">
