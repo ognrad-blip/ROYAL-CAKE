@@ -1,0 +1,360 @@
+{
+  "_napomena": "Cene iz Dušankinog cenovnika (foto 26.11.2026). Stavke sa proveriti=true treba potvrditi.",
+  "grupe": [
+    {
+      "id": "torte",
+      "naslov": "Torte",
+      "opis": "Cena po kilogramu"
+    },
+    {
+      "id": "kolaci",
+      "naslov": "Kolači i poslastice",
+      "opis": "Cena po komadu"
+    },
+    {
+      "id": "sitni",
+      "naslov": "Sitni i domaći kolači",
+      "opis": "Za slavlja i proslave"
+    }
+  ],
+  "stavke": [
+    {
+      "id": "vocna-juzno-voce",
+      "naziv": "Voćna južno voće",
+      "jedinica": "kg",
+      "cena": 1450,
+      "grupa": "torte"
+    },
+    {
+      "id": "vocna-sezonsko-voce",
+      "naziv": "Voćna sezonsko voće",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "torte"
+    },
+    {
+      "id": "vocni-sladoled",
+      "naziv": "Voćni sladoled",
+      "jedinica": "kg",
+      "cena": 1600,
+      "grupa": "torte",
+      "proveriti": true
+    },
+    {
+      "id": "bela-milka",
+      "naziv": "Bela Milka",
+      "jedinica": "kg",
+      "cena": 1350,
+      "grupa": "torte"
+    },
+    {
+      "id": "reforma",
+      "naziv": "Reforma",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "gabon",
+      "naziv": "Gabon",
+      "jedinica": "kg",
+      "cena": 1500,
+      "grupa": "torte"
+    },
+    {
+      "id": "grcka",
+      "naziv": "Grčka",
+      "jedinica": "kg",
+      "cena": 1650,
+      "grupa": "torte"
+    },
+    {
+      "id": "patrijarsija",
+      "naziv": "Patrijaršija",
+      "jedinica": "kg",
+      "cena": 1650,
+      "grupa": "torte"
+    },
+    {
+      "id": "kinder-bueno",
+      "naziv": "Kinder Bueno",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "divlja-ruza",
+      "naziv": "Divlja ruža",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "torte"
+    },
+    {
+      "id": "zlatna-lesnik",
+      "naziv": "Zlatna lešnik",
+      "jedinica": "kg",
+      "cena": 2300,
+      "grupa": "torte"
+    },
+    {
+      "id": "najlepse-zelje",
+      "naziv": "Najlepše želje",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "torte"
+    },
+    {
+      "id": "baron",
+      "naziv": "Baron",
+      "jedinica": "kg",
+      "cena": 1680,
+      "grupa": "torte"
+    },
+    {
+      "id": "bajadera",
+      "naziv": "Bajadera",
+      "jedinica": "kg",
+      "cena": 1950,
+      "grupa": "torte"
+    },
+    {
+      "id": "moskva",
+      "naziv": "Moskva",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "beze",
+      "naziv": "Beze",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "svarcvald",
+      "naziv": "Švarcvald",
+      "jedinica": "kg",
+      "cena": 1500,
+      "grupa": "torte"
+    },
+    {
+      "id": "super-top",
+      "naziv": "Super-top",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "dobos",
+      "naziv": "Doboš",
+      "jedinica": "kg",
+      "cena": 1450,
+      "grupa": "torte"
+    },
+    {
+      "id": "bambino-coko-moko",
+      "naziv": "Bambino / Čoko-moko",
+      "jedinica": "kg",
+      "cena": 1600,
+      "grupa": "torte"
+    },
+    {
+      "id": "pahuljica",
+      "naziv": "Pahuljica",
+      "jedinica": "kg",
+      "cena": 1650,
+      "grupa": "torte"
+    },
+    {
+      "id": "cizkejk",
+      "naziv": "Čizkejk",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "torte"
+    },
+    {
+      "id": "menaz",
+      "naziv": "Menaz",
+      "jedinica": "kg",
+      "cena": 1600,
+      "grupa": "torte"
+    },
+    {
+      "id": "sladoled",
+      "naziv": "Sladoled",
+      "jedinica": "kg",
+      "cena": 1400,
+      "grupa": "torte"
+    },
+    {
+      "id": "spanski-vetar",
+      "naziv": "Španski vetar",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "zakova",
+      "naziv": "Žakova",
+      "jedinica": "kg",
+      "cena": 1600,
+      "grupa": "torte"
+    },
+    {
+      "id": "zarbo",
+      "naziv": "Žarbo",
+      "jedinica": "kg",
+      "cena": 1650,
+      "grupa": "torte"
+    },
+    {
+      "id": "cokolina",
+      "naziv": "Čokolina",
+      "jedinica": "kg",
+      "cena": 1700,
+      "grupa": "torte"
+    },
+    {
+      "id": "princes-krofne",
+      "naziv": "Princes krofne",
+      "jedinica": "kom",
+      "cena": 70,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "sam-rolne",
+      "naziv": "Šam rolne",
+      "jedinica": "kom",
+      "cena": 70,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "ekleri",
+      "naziv": "Ekleri",
+      "jedinica": "kom",
+      "cena": 80,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "vocne-korpice",
+      "naziv": "Voćne korpice",
+      "jedinica": "kom",
+      "cena": 130,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "coko-korpice",
+      "naziv": "Čoko korpice",
+      "jedinica": "kom",
+      "cena": 130,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "ciz-u-casi",
+      "naziv": "Čiz u čaši",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "nutela-ciz",
+      "naziv": "Nutela čiz",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "tiramisu-u-casi",
+      "naziv": "Tiramisu u čaši",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "mus-vocni-coko-karamel",
+      "naziv": "Mus (voćni, čoko, karamel)",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "pavlove-tortice",
+      "naziv": "Pavlove tortice",
+      "jedinica": "kom",
+      "cena": 200,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "papucaki",
+      "naziv": "Papućaki",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "tiramisu-vocni",
+      "naziv": "Tiramisu voćni",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "krempita",
+      "naziv": "Krempita",
+      "jedinica": "kom",
+      "cena": 150,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "ledene-kocke",
+      "naziv": "Ledene kocke",
+      "jedinica": "kom",
+      "cena": 120,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "plazma-kuglice",
+      "naziv": "Plazma kuglice",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "sitni"
+    },
+    {
+      "id": "lesnik-gnezda",
+      "naziv": "Lešnik gnezda",
+      "jedinica": "kg",
+      "cena": 2000,
+      "grupa": "sitni"
+    },
+    {
+      "id": "cake-pops",
+      "naziv": "Cake pops",
+      "jedinica": "kg",
+      "cena": 2200,
+      "grupa": "sitni",
+      "proveriti": true
+    },
+    {
+      "id": "sladoled-na-stapicu",
+      "naziv": "Sladoled na štapiću",
+      "jedinica": "kom",
+      "cena": 250,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "srcici-na-stapicu",
+      "naziv": "Srcići na štapiću",
+      "jedinica": "kom",
+      "cena": 150,
+      "grupa": "kolaci"
+    },
+    {
+      "id": "domaci-kolaci",
+      "naziv": "Domaći kolači",
+      "jedinica": "kg",
+      "cena": 1800,
+      "grupa": "sitni"
+    }
+  ]
+}

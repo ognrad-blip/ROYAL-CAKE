@@ -1,0 +1,136 @@
+{
+  "kategorije": [
+    {
+      "id": "rodjendan",
+      "naziv": "Rođendani"
+    },
+    {
+      "id": "punoletstvo",
+      "naziv": "18. rođendan"
+    },
+    {
+      "id": "decije",
+      "naziv": "Dečije torte"
+    },
+    {
+      "id": "vencanje",
+      "naziv": "Venčanja i ljubav"
+    },
+    {
+      "id": "kolaci",
+      "naziv": "Kolači i čaše"
+    }
+  ],
+  "slike": [
+    {
+      "src": "/galerija/0344.webp",
+      "naslov": "Torta za 18. rođendan",
+      "kategorija": "punoletstvo"
+    },
+    {
+      "src": "/galerija/0345.webp",
+      "naslov": "Čokoladna torta sa slatkišima",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0346.webp",
+      "naslov": "Čokoladna torta sa borovnicama",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0347.webp",
+      "naslov": "Bela torta sa zlatnim detaljima",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0348.webp",
+      "naslov": "Voćne korpice i šam rolne",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0349.webp",
+      "naslov": "Svadbena torta sa voćem",
+      "kategorija": "vencanje"
+    },
+    {
+      "src": "/galerija/0350.webp",
+      "naslov": "Voćna torta sa bobicama",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0351.webp",
+      "naslov": "Čaše i voćne korpice",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0352.webp",
+      "naslov": "Sitni kolači u kutiji",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0353.webp",
+      "naslov": "Fudbalska torta",
+      "kategorija": "decije"
+    },
+    {
+      "src": "/galerija/0354.webp",
+      "naslov": "Torta K-pop tema",
+      "kategorija": "decije"
+    },
+    {
+      "src": "/galerija/0355.webp",
+      "naslov": "Torta bilijarski sto",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0356.webp",
+      "naslov": "Roze torta sa mašnom",
+      "kategorija": "decije"
+    },
+    {
+      "src": "/galerija/0357.webp",
+      "naslov": "Torta duga za 3. rođendan",
+      "kategorija": "decije"
+    },
+    {
+      "src": "/galerija/0358.webp",
+      "naslov": "Torta sa leptirima",
+      "kategorija": "rodjendan"
+    },
+    {
+      "src": "/galerija/0359.webp",
+      "naslov": "Torta sa ružama",
+      "kategorija": "vencanje"
+    },
+    {
+      "src": "/galerija/0360.webp",
+      "naslov": "Crvena torta srce",
+      "kategorija": "vencanje"
+    },
+    {
+      "src": "/galerija/0361.webp",
+      "naslov": "Domaći kolači",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0362.webp",
+      "naslov": "Lotus kolač u čaši",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0363.webp",
+      "naslov": "Banana kolač u čaši",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0364.webp",
+      "naslov": "Tiramisu u čaši",
+      "kategorija": "kolaci"
+    },
+    {
+      "src": "/galerija/0365.webp",
+      "naslov": "Torta sa medama",
+      "kategorija": "decije"
+    }
+  ]
+}
