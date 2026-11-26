@@ -13,6 +13,7 @@ const cormorant = Cormorant_Garamond({
 const jost = Jost({ variable: "--font-jost", subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://royal-cake-three.vercel.app"),
   title: { default: "Royal Cake Čačak | Torte i kolači po meri", template: "%s | Royal Cake Čačak" },
   description: "Ručno rađene torte i kolači iz Čačka. Napravite svoju tortu za rođendan, venčanje ili krštenje i pošaljite upit.",
   openGraph: {
