@@ -9,8 +9,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <Suspense>
-      <Konfigurator />
-    </Suspense>
+    <div className="glow min-h-[80svh]">
+      <Suspense>
+        <Konfigurator />
+      </Suspense>
+    </div>
   );
 }

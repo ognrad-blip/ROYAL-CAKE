@@ -13,7 +13,7 @@ export function VrstaFilter({ value, onChange }: { value: string; onChange: (v: 
           key={v.id}
           onClick={() => onChange(v.id)}
           className={`whitespace-nowrap rounded-full border px-4 py-2 text-sm ${
-            value === v.id ? "btn-gold border-transparent" : "border-line bg-ivory text-cocoa-soft"
+            value === v.id ? "btn-gold border-transparent" : "border-gold-light/20 text-cocoa-soft hover:border-gold-light/40"
           }`}
         >
           {v.naziv}

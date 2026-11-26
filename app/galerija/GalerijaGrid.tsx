@@ -50,16 +50,16 @@ export function GalerijaGrid() {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-20">
       {/* Filter */}
-      <nav className="sticky top-[105px] z-20 -mx-4 border-b border-line bg-cream/95 px-4 backdrop-blur md:top-[61px]">
+      <nav className="sticky top-[105px] z-20 -mx-4 border-b border-gold-light/10 bg-night/95 px-4 backdrop-blur md:top-[61px]">
         <div className="flex gap-6 overflow-x-auto py-4 md:justify-center">
           {[{ id: "sve", naziv: "Sve" }, ...galerija.kategorije].map((c) => (
             <button
               key={c.id}
               onClick={() => setK(c.id)}
-              className={`relative whitespace-nowrap pb-1 font-serif text-lg transition ${k === c.id ? "text-cocoa" : "text-cocoa-soft/70 hover:text-cocoa"}`}
+              className={`relative whitespace-nowrap pb-1 font-serif text-lg transition ${k === c.id ? "text-cream" : "text-cocoa-soft/70 hover:text-cream"}`}
             >
               {c.naziv}
-              <sup className="ml-1 font-sans text-[10px] text-gold-dark">{broj(c.id)}</sup>
+              <sup className="ml-1 font-sans text-[10px] text-gold-light">{broj(c.id)}</sup>
               <span className={`absolute inset-x-0 -bottom-px h-px bg-gold transition-transform ${k === c.id ? "scale-x-100" : "scale-x-0"}`} />
             </button>
           ))}
@@ -73,7 +73,7 @@ export function GalerijaGrid() {
             key={s.src}
             onClick={() => setOpen(i)}
             style={{ animationDelay: `${i * 40}ms` }}
-            className={`group relative overflow-hidden rounded-[1.25rem] bg-cream-deep [animation:fadeUp_.6s_both] ${spanFor(s, i)}`}
+            className={`group relative overflow-hidden rounded-[1.25rem] bg-cream-deep ring-1 ring-gold-light/15 [animation:fadeUp_.6s_both] ${spanFor(s, i)}`}
           >
             <Image src={s.src} alt={s.naslov} fill sizes="(max-width:768px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-[1.06]" />
             <div className="absolute inset-0 bg-gradient-to-t from-cocoa/75 via-cocoa/0 to-transparent opacity-80 transition md:opacity-0 md:group-hover:opacity-100" />
@@ -87,7 +87,7 @@ export function GalerijaGrid() {
       </div>
 
       <div className="mt-14 text-center">
-        <p className="font-serif text-3xl">Niste pronašli pravu?</p>
+        <p className="font-serif text-4xl font-medium">Niste pronašli <em className="gold-text font-semibold">pravu?</em></p>
         <p className="mt-2 text-sm text-cocoa-soft">Napravite svoju, a mi ćemo je izraditi po vašoj želji.</p>
         <Link href="/napravi-tortu" className="btn-gold mt-5 inline-block rounded-full px-8 py-3 font-medium">Napravi svoju tortu</Link>
       </div>

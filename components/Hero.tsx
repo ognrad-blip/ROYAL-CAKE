@@ -17,7 +17,7 @@ function Kartica({ src, priority }: { src: string; priority?: boolean }) {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#1c1411] text-cream">
+    <section className="relative overflow-hidden bg-night text-cream">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(217,191,140,0.16),transparent_60%)]" />
       {/* Mobile: horizontal marquee strip */}
       <div className="fade-x relative pt-6 md:hidden">

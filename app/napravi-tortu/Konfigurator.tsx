@@ -114,7 +114,7 @@ export function Konfigurator() {
   if (poslato) {
     return (
       <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <p className="font-serif text-5xl">Hvala, {z.ime.split(" ")[0]}!</p>
+        <p className="font-serif text-5xl">Hvala, <em className="gold-text font-semibold">{z.ime.split(" ")[0]}</em>!</p>
         <p className="mt-4 text-cocoa-soft">
           Upit je pripremljen. Dušanka će vam se javiti da potvrdi detalje i konačnu cenu. Kaparu možete uplatiti na račun ili u radnji.
         </p>
@@ -124,12 +124,12 @@ export function Konfigurator() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 pb-40 pt-6">
+    <div className="mx-auto max-w-2xl px-4 pb-40 pt-8 md:pt-12">
       {/* Progress */}
       <div className="mb-6">
         <div className="flex justify-between text-[11px] uppercase tracking-wider text-cocoa-soft">
           <span>Korak {korak + 1} od {KORACI.length}</span>
-          <span className="text-gold-dark">{KORACI[korak]}</span>
+          <span className="text-gold-light">{KORACI[korak]}</span>
         </div>
         <div className="mt-2 h-1 rounded-full bg-line">
           <div className="btn-gold h-1 rounded-full transition-all" style={{ width: `${((korak + 1) / KORACI.length) * 100}%` }} />
@@ -155,7 +155,7 @@ export function Konfigurator() {
       {korak === 1 && (
         <Step naslov="Za koliko osoba?">
           <div className="rounded-2xl border border-line bg-ivory p-6 text-center">
-            <p className="font-serif text-6xl text-gold-dark">{z.osobe}</p>
+            <p className="font-serif text-6xl text-gold-light">{z.osobe}</p>
             <p className="text-sm text-cocoa-soft">osoba · oko {kg} kg</p>
             <input
               type="range"
@@ -198,7 +198,7 @@ export function Konfigurator() {
                     className={`rounded-xl border px-2 py-2 text-left text-xs ${Math.min(aktivniSprat, brojSpratova - 1) === i ? "border-gold bg-blush ring-1 ring-gold" : "border-line bg-ivory"}`}
                   >
                     <span className="block font-medium">{naziv}</span>
-                    <span className="block truncate text-gold-dark">{ukusSprata(i)?.naziv ?? "Izaberite"}</span>
+                    <span className="block truncate text-gold-light">{ukusSprata(i)?.naziv ?? "Izaberite"}</span>
                   </button>
                 );
               })}
@@ -223,7 +223,7 @@ export function Konfigurator() {
                   }}
                 >
                   <span className="block font-medium">{u.naziv}</span>
-                  <span className="text-xs text-gold-dark">{din(u.cena)}/kg</span>
+                  <span className="text-xs text-gold-light">{din(u.cena)}/kg</span>
                 </Choice>
               );
             })}
@@ -240,7 +240,7 @@ export function Konfigurator() {
                 <button
                   key={id}
                   onClick={() => set({ stil: z.stil === id ? undefined : id })}
-                  className={`relative aspect-[3/4] overflow-hidden rounded-2xl ring-offset-2 ring-offset-cream ${z.stil === id ? "ring-2 ring-gold" : ""}`}
+                  className={`relative aspect-[3/4] overflow-hidden rounded-2xl ring-offset-2 ring-offset-night ${z.stil === id ? "ring-2 ring-gold" : ""}`}
                 >
                   <Image src={s.src} alt={s.naslov} fill sizes="(max-width:640px) 45vw, 160px" className="object-cover" />
                   {z.stil === id && <span className="btn-gold absolute right-2 top-2 rounded-full px-2 py-0.5 text-xs">✓</span>}
@@ -345,7 +345,7 @@ export function Konfigurator() {
             <a
               href={`viber://forward?text=${encodeURIComponent(poruka)}`}
               onClick={() => moze && setTimeout(() => setPoslato(true), 400)}
-              className={`rounded-full border border-gold py-4 text-center font-medium text-gold-dark ${moze ? "" : "pointer-events-none opacity-40"}`}
+              className={`rounded-full border border-gold py-4 text-center font-medium text-gold-light ${moze ? "" : "pointer-events-none opacity-40"}`}
             >
               Pošalji preko Vibera
             </a>
@@ -354,11 +354,11 @@ export function Konfigurator() {
       )}
 
       {/* Sticky footer: price + nav */}
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-ivory/95 backdrop-blur">
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-gold-light/15 bg-cocoa/90 backdrop-blur">
         <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 py-3">
           <div className="flex-1">
             <p className="text-[11px] uppercase tracking-wider text-cocoa-soft">Okvirna cena</p>
-            <p className="font-serif text-2xl text-gold-dark">{cena ? din(cena) : "—"}</p>
+            <p className="font-serif text-2xl text-gold-light">{cena ? din(cena) : "—"}</p>
           </div>
           {korak > 0 && (
             <button onClick={() => { setKorak(korak - 1); window.scrollTo(0, 0); }} className="rounded-full border border-line px-5 py-3 text-sm">Nazad</button>
@@ -386,7 +386,7 @@ function toggle(arr: string[], v: string) {
 function Step({ naslov, podnaslov, children }: { naslov: string; podnaslov?: string; children: React.ReactNode }) {
   return (
     <section>
-      <h1 className="font-serif text-4xl">{naslov}</h1>
+      <h1 className="font-serif text-[2.6rem] font-medium leading-none md:text-5xl">{naslov}</h1>
       {podnaslov && <p className="mt-2 text-sm text-cocoa-soft">{podnaslov}</p>}
       <div className="mt-6">{children}</div>
     </section>
@@ -419,6 +419,6 @@ function Pill({ active, onClick, children }: { active: boolean; onClick: () => v
 
 function Note({ children, warn }: { children: React.ReactNode; warn?: boolean }) {
   return (
-    <p className={`mt-4 rounded-xl px-4 py-3 text-sm ${warn ? "bg-blush text-cocoa" : "bg-cream-deep text-cocoa-soft"}`}>{children}</p>
+    <p className={`mt-4 rounded-xl px-4 py-3 text-sm ${warn ? "bg-blush text-cream" : "bg-cream-deep text-cocoa-soft"}`}>{children}</p>
   );
 }
