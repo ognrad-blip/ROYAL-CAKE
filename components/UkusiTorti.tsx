@@ -1,8 +1,7 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 import ponuda from "@/content/ponuda.json";
-import { din } from "@/lib/format";
+import { ProizvodKartica } from "./ProizvodKartica";
 
 export const torte = ponuda.stavke.filter((s) => s.grupa === "torte");
 
@@ -29,25 +28,12 @@ export const filtriraj = (vrsta: string) =>
 
 export function UkusiTorti() {
   const [vrsta, setVrsta] = useState("sve");
-  const lista = filtriraj(vrsta);
   return (
     <>
       <VrstaFilter value={vrsta} onChange={setVrsta} />
-      <ul className="mt-4 grid gap-3 md:grid-cols-2">
-        {lista.map((s) => (
-          <li key={s.id} className="flex items-center gap-3 rounded-2xl border border-line bg-ivory p-4">
-            <div className="flex-1">
-              <p className="font-serif text-xl leading-tight">{s.naziv}</p>
-              {s.opis && <p className="text-xs text-cocoa-soft">{s.opis}</p>}
-              <p className="mt-1 text-sm text-gold-dark">{din(s.cena)} / kg</p>
-            </div>
-            <Link
-              href={`/napravi-tortu?ukus=${s.id}`}
-              className="whitespace-nowrap rounded-full border border-gold px-4 py-2 text-xs font-medium text-gold-dark hover:bg-blush"
-            >
-              Izaberi ovaj ukus
-            </Link>
-          </li>
+      <ul className="mt-4 grid items-start gap-3 md:grid-cols-2">
+        {filtriraj(vrsta).map((s) => (
+          <ProizvodKartica key={s.id} s={s} />
         ))}
       </ul>
     </>

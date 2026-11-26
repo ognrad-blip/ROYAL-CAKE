@@ -47,6 +47,7 @@ export function Konfigurator() {
   const [z, setZ] = useState<Izbor>({
     osobe: cfg.osobe.podrazumevano,
     ukusi: izLinka ? [izLinka] : [],
+    stil: galerija.slike.find((g) => g.id === params.get("stil"))?.id,
     boje: [],
     detalji: [],
     natpis: "",
@@ -233,7 +234,7 @@ export function Konfigurator() {
       {korak === 3 && (
         <Step naslov="Izaberite stil" podnaslov="Izaberite tortu iz naše galerije koja vam se najviše dopada. Nije obavezno.">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {cfg.stilovi.map((id) => {
+            {(z.stil && !cfg.stilovi.includes(z.stil) ? [z.stil, ...cfg.stilovi] : cfg.stilovi).map((id) => {
               const s = galerija.slike.find((g) => g.src.includes(id))!;
               return (
                 <button
