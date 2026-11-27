@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { VrstaFilter, filtriraj } from "@/components/UkusiTorti";
 import cfg from "@/config/torte.json";
@@ -19,6 +19,10 @@ type Izbor = {
   detalji: string[];
   natpis: string;
   inspiracija?: string;
+  inspiracijaUrl?: string;
+  inspiracijaStatus?: "salje" | "ok" | "greska";
+  nacin?: "ista" | "varijacija";
+  izmene: string;
   datum: string;
   preuzimanje?: string;
   ime: string;
@@ -51,12 +55,48 @@ export function Konfigurator() {
     boje: [],
     detalji: [],
     natpis: "",
+    izmene: "",
     datum: "",
     ime: "",
     telefon: "",
     napomena: "",
   });
   const set = (p: Partial<Izbor>) => setZ((s) => ({ ...s, ...p }));
+  const [fajl, setFajl] = useState<File | null>(null);
+  const pokusaj = useRef(0);
+
+  async function dodajInspiraciju(f: File) {
+    const id = ++pokusaj.current;
+    setFajl(f);
+    set({ inspiracija: URL.createObjectURL(f), inspiracijaUrl: undefined, inspiracijaStatus: "salje" });
+    try {
+      const slika = await smanji(f);
+      if (id === pokusaj.current) setFajl(new File([slika], "inspiracija.jpg", { type: slika.type }));
+      const fd = new FormData();
+      fd.append("slika", slika, "inspiracija.jpg");
+      const r = await fetch("/api/inspiracija", { method: "POST", body: fd });
+      const { url } = await r.json();
+      if (id !== pokusaj.current) return;
+      set(r.ok && url ? { inspiracijaUrl: url, inspiracijaStatus: "ok" } : { inspiracijaStatus: "greska" });
+    } catch {
+      if (id === pokusaj.current) set({ inspiracijaStatus: "greska" });
+    }
+  }
+
+  function ukloniInspiraciju() {
+    pokusaj.current++;
+    setFajl(null);
+    set({ inspiracija: undefined, inspiracijaUrl: undefined, inspiracijaStatus: undefined, nacin: undefined, izmene: "" });
+  }
+
+  async function podeliSliku() {
+    const f = fajl;
+    if (f && navigator.canShare?.({ files: [f] })) {
+      try {
+        await navigator.share({ files: [f], text: "Slika za inspiraciju (upit sa sajta Royal Cake)" });
+      } catch {}
+    }
+  }
 
   const kg = Math.max(cfg.minKg.vrednost, Math.round(z.osobe * cfg.kgPoOsobi.vrednost * 2) / 2);
   const brojSpratova = Number(z.spratovi ?? 1);
@@ -80,7 +120,7 @@ export function Konfigurator() {
     !!z.prilika,
     !!z.spratovi,
     sviIzabrani,
-    true,
+    !z.inspiracija || (!!z.nacin && z.inspiracijaStatus !== "salje"),
     true,
     !!z.datum && !!z.preuzimanje,
     z.ime.trim().length > 1 && z.telefon.trim().length > 5,
@@ -95,11 +135,15 @@ export function Konfigurator() {
       `Broj osoba: ${z.osobe} (oko ${kg} kg)`,
       `Spratovi: ${cfg.spratovi.find((s) => s.id === z.spratovi)?.naziv ?? "-"}`,
       `Ukus: ${opisUkusa}`,
-      `Stil: ${stil ? stil.naslov : "po dogovoru"}`,
+      `Stil: ${stil ? stil.naslov : z.inspiracija ? "po slici za inspiraciju" : "po dogovoru"}`,
+      z.inspiracija ? `Inspiracija: ${z.nacin === "ista" ? "napraviti istu tortu" : "varijacija na temu"}` : "",
+      z.inspiracija
+        ? `Slika: ${z.inspiracijaUrl ?? "šaljem u ovom četu odmah posle poruke"}`
+        : "",
+      z.inspiracija && z.izmene.trim() ? `Šta promeniti: ${z.izmene.trim()}` : "",
       `Boje: ${z.boje.join(", ") || "-"}`,
       `Detalji: ${det.join(", ") || "-"}`,
       z.natpis ? `Natpis: "${z.natpis}"` : "",
-      z.inspiracija ? "Slika za inspiraciju: šaljem odvojeno" : "",
       `Datum: ${z.datum}`,
       `Preuzimanje: ${cfg.preuzimanje.find((p) => p.id === z.preuzimanje)?.naziv.replace(/\s*\[.*\]/, "") ?? "-"}`,
       `Okvirna cena: ${cena ? din(cena) : "-"} (bez ukrasa)`,
@@ -118,6 +162,19 @@ export function Konfigurator() {
         <p className="mt-4 text-cocoa-soft">
           Upit je pripremljen. Dušanka će vam se javiti da potvrdi detalje i konačnu cenu. Kaparu možete uplatiti na račun ili u radnji.
         </p>
+        {z.inspiracija && !z.inspiracijaUrl && (
+          <div className="mt-6 rounded-2xl border border-dashed border-gold/60 bg-ivory p-5 text-left">
+            <p className="font-medium">Ne zaboravite sliku za inspiraciju</p>
+            <p className="mt-1 text-sm text-cocoa-soft">
+              Pošaljite je Dušanki u isti čet (WhatsApp ili Viber) odmah posle poruke, kao običnu fotografiju.
+            </p>
+            {typeof navigator !== "undefined" && fajl && navigator.canShare?.({ files: [fajl] }) && (
+              <button onClick={podeliSliku} className="mt-3 rounded-full border border-gold px-6 py-2 text-sm text-gold-light">
+                Podeli sliku
+              </button>
+            )}
+          </div>
+        )}
         <Link href="/" className="btn-gold mt-8 inline-block rounded-full px-8 py-3">Nazad na početnu</Link>
       </div>
     );
@@ -232,7 +289,7 @@ export function Konfigurator() {
       )}
 
       {korak === 3 && (
-        <Step naslov="Izaberite stil" podnaslov="Izaberite tortu iz naše galerije koja vam se najviše dopada. Nije obavezno.">
+        <Step naslov="Izaberite stil" podnaslov="Izaberite tortu iz naše galerije ili dodajte sliku torte koju ste videli na internetu. Nije obavezno.">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {(z.stil && !cfg.stilovi.includes(z.stil) ? [z.stil, ...cfg.stilovi] : cfg.stilovi).map((id) => {
               const s = galerija.slike.find((g) => g.src.includes(id))!;
@@ -248,6 +305,59 @@ export function Konfigurator() {
               );
             })}
           </div>
+
+          <p className="mb-1 mt-8 text-sm font-medium">Dodaj inspiraciju</p>
+          <p className="mb-3 text-sm text-cocoa-soft">
+            Videli ste tortu na internetu? Dodajte sliku (snimak ekrana je sasvim u redu), a Dušanka će napraviti istu ili varijaciju na temu.
+          </p>
+          <label className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-gold/60 bg-ivory p-4">
+            {z.inspiracija ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={z.inspiracija} alt="Inspiracija" className="h-20 w-20 rounded-lg object-cover" />
+            ) : (
+              <span className="flex h-20 w-20 items-center justify-center rounded-lg bg-cream-deep text-2xl">📷</span>
+            )}
+            <span className="text-sm text-cocoa-soft">
+              <span className="block font-medium text-cream">{z.inspiracija ? "Promeni sliku" : "Dodaj sliku inspiracije"}</span>
+              {z.inspiracijaStatus === "salje" && <span className="block text-xs">Slika se učitava…</span>}
+              {z.inspiracijaStatus === "ok" && <span className="block text-xs text-gold-light">✓ Slika je spremna i ide uz upit</span>}
+              {z.inspiracijaStatus === "greska" && <span className="block text-xs">Sliku ćete poslati u četu, posle poruke</span>}
+              {!z.inspiracija && <span className="block text-xs">Iz galerije telefona ili sa računara</span>}
+            </span>
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) dodajInspiraciju(f);
+                e.target.value = "";
+              }}
+            />
+          </label>
+          {z.inspiracija && (
+            <>
+              <button onClick={ukloniInspiraciju} className="mt-2 text-xs text-cocoa-soft underline">Ukloni sliku</button>
+              <p className="mb-2 mt-5 text-sm font-medium">Šta želite?</p>
+              <div className="grid grid-cols-2 gap-3">
+                <Choice active={z.nacin === "ista"} onClick={() => set({ nacin: "ista" })} compact>
+                  <span className="block font-medium">Napravi istu</span>
+                  <span className="text-xs text-cocoa-soft">Što sličnije slici</span>
+                </Choice>
+                <Choice active={z.nacin === "varijacija"} onClick={() => set({ nacin: "varijacija" })} compact>
+                  <span className="block font-medium">Varijacija na temu</span>
+                  <span className="text-xs text-cocoa-soft">Slobodnije, u Dušankinom stilu</span>
+                </Choice>
+              </div>
+              <textarea
+                placeholder="Šta da se promeni? npr. druga boja, bez figurica, ime Ana (opciono)"
+                rows={2}
+                value={z.izmene}
+                onChange={(e) => set({ izmene: e.target.value })}
+                className="mt-3 w-full rounded-xl border border-line bg-ivory px-4 py-3"
+              />
+            </>
+          )}
         </Step>
       )}
 
@@ -273,25 +383,6 @@ export function Konfigurator() {
               className="mt-4 w-full rounded-xl border border-line bg-ivory px-4 py-3"
             />
           )}
-          <p className="mb-2 mt-6 text-sm font-medium">Slika za inspiraciju (opciono)</p>
-          <label className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-gold/60 bg-ivory p-4">
-            {z.inspiracija ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={z.inspiracija} alt="Inspiracija" className="h-16 w-16 rounded-lg object-cover" />
-            ) : (
-              <span className="flex h-16 w-16 items-center justify-center rounded-lg bg-cream-deep text-2xl">📷</span>
-            )}
-            <span className="text-sm text-cocoa-soft">{z.inspiracija ? "Promeni sliku" : "Dodaj sliku sa telefona"}</span>
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => {
-                const f = e.target.files?.[0];
-                if (f) set({ inspiracija: URL.createObjectURL(f) });
-              }}
-            />
-          </label>
           <Note>Cena ukrasa se dogovara sa Dušankom i nije uračunata u okvirnu cenu.</Note>
         </Step>
       )}
@@ -421,4 +512,19 @@ function Note({ children, warn }: { children: React.ReactNode; warn?: boolean })
   return (
     <p className={`mt-4 rounded-xl px-4 py-3 text-sm ${warn ? "bg-blush text-cream" : "bg-cream-deep text-cocoa-soft"}`}>{children}</p>
   );
+}
+
+// Smanjuje fotografiju na najviše 1600 px (JPEG) da bi se brzo poslala i sa slabijim signalom.
+async function smanji(f: File): Promise<Blob> {
+  try {
+    const bmp = await createImageBitmap(f);
+    const k = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement("canvas");
+    c.width = Math.round(bmp.width * k);
+    c.height = Math.round(bmp.height * k);
+    c.getContext("2d")!.drawImage(bmp, 0, 0, c.width, c.height);
+    const b = await new Promise<Blob | null>((r) => c.toBlob(r, "image/jpeg", 0.85));
+    if (b) return b;
+  } catch {}
+  return f;
 }
