@@ -4,6 +4,7 @@ import { Crown } from "./Crown";
 const links = [
   { href: "/ponuda", label: "Ponuda" },
   { href: "/galerija", label: "Galerija" },
+  { href: "/#o-nama", label: "O nama" },
   { href: "/#pitanja", label: "Pitanja" },
   { href: "/#kontakt", label: "Kontakt" },
 ];

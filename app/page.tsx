@@ -15,6 +15,8 @@ const prilike = [
   { naslov: "Kolači i čaše", slika: "/galerija/0351.webp", href: "/galerija?k=kolaci" },
 ];
 
+const oNama = sajt.oNama;
+
 const izdvojeno = ["bajadera", "zlatna-lesnik", "svarcvald", "cizkejk"];
 
 export default function Home() {
@@ -104,14 +106,64 @@ export default function Home() {
       </section>
 
       {/* O nama */}
-      <section className="glow border-t border-gold-light/10 py-20">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 md:grid-cols-2">
-          <div className="relative aspect-square overflow-hidden rounded-[2rem] ring-1 ring-gold-light/20">
-            <Image src="/galerija/0361.webp" alt="Domaći kolači Royal Cake" fill sizes="(max-width:768px) 90vw, 40vw" className="object-cover" />
+      <section id="o-nama" className="glow scroll-mt-28 border-t border-gold-light/10 py-20">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-gold-light/20 md:aspect-square">
+              <Image src="/galerija/0361.webp" alt="Domaći kolači Royal Cake" fill sizes="(max-width:768px) 90vw, 40vw" className="object-cover" />
+            </div>
+            <div>
+              <SectionTitle nad="O nama" naslov={oNama.naslov} left />
+              <div className="mt-6 space-y-4 leading-relaxed text-cocoa-soft">
+                {oNama.pasusi.map((p, i) => (
+                  <p key={i} className={i === 0 ? "font-serif text-2xl leading-snug text-cream" : ""}>{p}</p>
+                ))}
+              </div>
+            </div>
           </div>
-          <div>
-            <SectionTitle nad="O nama" naslov="Pravljeno s ljubavlju" left />
-            <p className="mt-5 leading-relaxed text-cocoa-soft">{sajt.oNama}</p>
+
+          <div className="mt-12 grid grid-cols-3 gap-3 md:gap-4">
+            {oNama.odlike.map((o) => (
+              <div key={o.tekst} className="rounded-2xl border border-gold-light/15 bg-ivory/70 p-4 text-center md:p-6">
+                <p className="gold-text font-serif text-[1.65rem] font-semibold leading-tight md:text-5xl">{o.broj}</p>
+                <p className="mt-2 text-xs leading-snug text-cocoa-soft md:text-sm">{o.tekst}</p>
+              </div>
+            ))}
+          </div>
+
+          <figure className="mx-auto mt-14 max-w-2xl text-center">
+            <Crown className="mx-auto mb-4 h-5 w-8 text-gold-light/70" />
+            <blockquote className="font-serif text-5xl italic leading-none text-cream md:text-6xl">„{oNama.citat}“</blockquote>
+            <figcaption className="mt-4 text-sm text-cocoa-soft">{oNama.citatOpis}</figcaption>
+            <p className="mt-8 text-[11px] uppercase tracking-[0.45em] text-gold-light">
+              {oNama.moto.join(" · ")}
+            </p>
+          </figure>
+
+          <div className="glow relative mt-14 overflow-hidden rounded-[2rem] border border-gold-light/15 bg-cocoa px-6 py-10 text-cream md:px-12 md:py-12">
+            <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-center">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.45em] text-gold-light">Rashladno vozilo</p>
+                <h3 className="mt-3 font-serif text-4xl font-medium leading-none md:text-5xl">
+                  {oNama.dostava.naslov} <em className="gold-text font-semibold">širom Srbije</em>
+                </h3>
+                <p className="mt-4 leading-relaxed text-cream/75">{oNama.dostava.tekst}</p>
+              </div>
+              <ul className="flex flex-wrap gap-2 md:justify-end">
+                {oNama.dostava.gradovi.map((g) => (
+                  <li key={g} className="rounded-full border border-gold-light/30 px-4 py-2 text-sm text-cream/85">{g}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-9 flex flex-col items-center gap-3 border-t border-gold-light/10 pt-8 text-center sm:flex-row sm:justify-between sm:text-left">
+              <p className="text-sm text-cream/70">{oNama.rezervacija}</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a href={`tel:${sajt.telefonLink}`} className="btn-gold rounded-full px-7 py-3 font-medium">Pozovite {sajt.telefon}</a>
+                <a href={sajt.instagramLink} target="_blank" rel="noopener noreferrer" className="rounded-full border border-gold-light/40 px-7 py-3 text-sm font-medium text-gold-light hover:bg-white/5">
+                  Instagram {sajt.instagram}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -4,8 +4,50 @@
   "slogan": "Torte i kolači za svaku priliku",
   "uvod": "Ručno rađene torte i kolači iz Čačka. Za rođendane, venčanja i sve trenutke koje vredi proslaviti.",
   "adresa": "[POPUNITI adresa]",
-  "telefon": "[POPUNITI telefon]",
-  "instagram": "[POPUNITI Instagram]",
+  "telefon": "067 713 8550",
+  "instagram": "@royalcake_cacak",
   "radnoVreme": "[POPUNITI radno vreme]",
-  "oNama": "[POPUNITI: kratka priča o Dušanki i poslastičarnici, par rečenica]"
+  "oNama": {
+    "naslov": "Pravljeno s ljubavlju",
+    "pasusi": [
+      "Sve je počelo jednom zelenom tortom sa tri praseta. Dušanka ju je napravila sa 15 godina, za bratov rođendan. Od tada je prošlo 20 godina i hiljade torti, a ljubav prema poslu je ostala ista.",
+      "Royal Cake je nastao kao plod tog dugogodišnjeg rada, a ime je zajednička ideja cele porodice. Koristimo samo najkvalitetnije, sveže i domaće sastojke. Najviše volimo ukuse domaćih torti i kolača, onakve kakve su pravile naše bake.",
+      "Pravimo torte po meri za rođendane i sve druge prilike, tematske torte, cake pops, ukrašene krofne i ručno rađene slatkiše. Saradnja je jednostavna i brza, a sve se radi po dogovoru."
+    ],
+    "citat": "Torta je top!",
+    "citatOpis": "Najčešće reči naših kupaca, i naša najveća nagrada.",
+    "odlike": [
+      {
+        "broj": "20",
+        "tekst": "godina iskustva"
+      },
+      {
+        "broj": "100%",
+        "tekst": "sveži i domaći sastojci"
+      },
+      {
+        "broj": "Po meri",
+        "tekst": "sve se radi po dogovoru"
+      }
+    ],
+    "moto": [
+      "Kvalitet",
+      "izgled",
+      "ukus"
+    ],
+    "dostava": {
+      "naslov": "Dostava",
+      "tekst": "Dostavu radimo na teritoriji Čačka i okoline, a za veće porudžbine i širom Srbije, u našem rashladnom vozilu, da torta stigne savršena. Redovno dostavljamo u Beograd, Kragujevac, Niš i Novi Sad, za venčanja, velike konferencije i posebne prilike.",
+      "gradovi": [
+        "Čačak i okolina",
+        "Beograd",
+        "Kragujevac",
+        "Niš",
+        "Novi Sad"
+      ]
+    },
+    "rezervacija": "Preporučujemo da datum rezervišete na vreme."
+  },
+  "telefonLink": "+381677138550",
+  "instagramLink": "https://www.instagram.com/royalcake_cacak/"
 }

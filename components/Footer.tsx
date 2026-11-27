@@ -12,13 +12,15 @@ export function Footer() {
         </div>
         <div className="space-y-2 text-sm text-cream/80">
           <p className="text-[11px] uppercase tracking-[0.45em] text-gold-light">Kontakt</p>
+          <p><a href={`tel:${sajt.telefonLink}`} className="hover:text-gold-light">{sajt.telefon}</a></p>
+          <p><a href={sajt.instagramLink} target="_blank" rel="noopener noreferrer" className="hover:text-gold-light">Instagram {sajt.instagram}</a></p>
           <p>{sajt.adresa}</p>
-          <p>{sajt.telefon}</p>
-          <p>{sajt.instagram}</p>
         </div>
         <div className="space-y-2 text-sm text-cream/80">
           <p className="text-[11px] uppercase tracking-[0.45em] text-gold-light">Radno vreme</p>
           <p>{sajt.radnoVreme}</p>
+          <p className="pt-3 text-[11px] uppercase tracking-[0.45em] text-gold-light">Dostava</p>
+          <p>Čačak i okolina, za veće porudžbine cela Srbija</p>
         </div>
       </div>
       <p className="border-t border-gold-light/10 py-5 text-center text-xs text-cream/50">

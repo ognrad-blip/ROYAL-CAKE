@@ -343,7 +343,7 @@ export function Konfigurator() {
               Pošalji preko WhatsApp-a
             </a>
             <a
-              href={`viber://forward?text=${encodeURIComponent(poruka)}`}
+              href={`viber://chat?number=%2B${cfg.kontakt.viber}&draft=${encodeURIComponent(poruka)}`}
               onClick={() => moze && setTimeout(() => setPoslato(true), 400)}
               className={`rounded-full border border-gold py-4 text-center font-medium text-gold-light ${moze ? "" : "pointer-events-none opacity-40"}`}
             >
