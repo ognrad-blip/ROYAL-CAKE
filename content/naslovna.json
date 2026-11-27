@@ -1,5 +1,5 @@
 {
-  "_napomena": "Slike za naslovnu dao Oggy 26.11.2026 kao inspiraciju. Nisu Dušankini radovi; zameniti njenim fotografijama.",
+  "_napomena": "Slike za naslovnu dao Oggy 26. i 27.11.2026 (10–16: svadbene torte) kao inspiraciju. Nisu Dušankini radovi; zameniti njenim fotografijama.",
   "oznaka": "Inspiracija",
   "slike": [
     {
@@ -46,6 +46,41 @@
       "src": "/naslovna/9.webp",
       "w": 700,
       "h": 700
+    },
+    {
+      "src": "/naslovna/10.webp",
+      "w": 474,
+      "h": 646
+    },
+    {
+      "src": "/naslovna/11.webp",
+      "w": 399,
+      "h": 501
+    },
+    {
+      "src": "/naslovna/12.webp",
+      "w": 515,
+      "h": 388
+    },
+    {
+      "src": "/naslovna/13.webp",
+      "w": 473,
+      "h": 648
+    },
+    {
+      "src": "/naslovna/14.webp",
+      "w": 477,
+      "h": 642
+    },
+    {
+      "src": "/naslovna/15.webp",
+      "w": 425,
+      "h": 720
+    },
+    {
+      "src": "/naslovna/16.webp",
+      "w": 700,
+      "h": 1053
     }
   ]
 }
